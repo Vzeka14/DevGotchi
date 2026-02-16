@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  max-width: 420px;
+  width: 100%;
+  padding: 2rem;
+}
+
+/* Hatch screen */
+.hatch-screen {
+  text-align: center;
+}
+.hatch-screen h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.hatch-screen__form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.hatch-screen__form input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #16213e;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+.hatch-screen__form button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #e94560;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.hatch-screen__form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pet display */
+.pet-display {
+  text-align: center;
+}
+.pet-display__name {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.pet-display__avatar {
+  font-size: 5rem;
+  margin: 1rem 0;
+}
+.pet-display__stage {
+  margin-bottom: 1.5rem;
+  color: #aaa;
+}
+
+/* Stats bars */
+.pet-display__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.stats-bar__label {
+  width: 80px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+.stats-bar__track {
+  flex: 1;
+  height: 12px;
+  background: #16213e;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.stats-bar__fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+.stats-bar__value {
+  width: 30px;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.action-buttons__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #16213e;
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.action-buttons__btn:hover {
+  background: #0f3460;
+}
+.action-buttons__emoji {
+  font-size: 1.1rem;
+}
