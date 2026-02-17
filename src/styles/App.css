@@ -70,6 +70,47 @@ body {
   font-size: 5rem;
   margin: 1rem 0;
 }
+.pet-display__avatar--sleeping {
+  position: relative;
+  animation: sleeping-pulse 1.5s ease-in-out infinite;
+}
+.pet-display__bed {
+  position: relative;
+  display: inline-block;
+}
+.pet-display__bed-emoji {
+  font-size: 5rem;
+}
+.pet-display__zzz {
+  position: absolute;
+  top: -0.5rem;
+  right: -1.5rem;
+  font-size: 2rem;
+  animation: zzz-float 1.5s ease-in-out infinite;
+}
+@keyframes zzz-float {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-12px) scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(-24px) scale(0.8);
+  }
+}
+@keyframes sleeping-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 .pet-display__stage {
   margin-bottom: 1.5rem;
   color: #aaa;

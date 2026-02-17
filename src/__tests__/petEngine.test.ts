@@ -18,9 +18,9 @@ describe("decayStats", () => {
   it("reduces hunger, energy, happiness by elapsed minutes", () => {
     const stats = { hunger: 80, energy: 80, happiness: 80, skill: 50 };
     const result = decayStats(stats, 300); // 5 minutes
-    expect(result.hunger).toBe(70);
-    expect(result.energy).toBe(70);
-    expect(result.happiness).toBe(70);
+    expect(result.hunger).toBe(77.5);
+    expect(result.energy).toBe(77.5);
+    expect(result.happiness).toBe(77.5);
   });
   it("does not reduce skill", () => {
     const stats = { hunger: 80, energy: 80, happiness: 80, skill: 50 };

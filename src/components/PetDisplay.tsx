@@ -14,13 +14,25 @@ const STAGE_ART: Record<Pet["stage"], string> = {
 interface PetDisplayProps {
   pet: Pet;
   onAction: (action: PetAction) => void;
+  isSleeping: boolean;
 }
 
-export function PetDisplay({ pet, onAction }: PetDisplayProps) {
+export function PetDisplay({ pet, onAction, isSleeping }: PetDisplayProps) {
   return (
     <div className="pet-display">
       <h2 className="pet-display__name">{pet.name}</h2>
-      <div className="pet-display__avatar">{STAGE_ART[pet.stage]}</div>
+      <div
+        className={`pet-display__avatar${isSleeping ? " pet-display__avatar--sleeping" : ""}`}
+      >
+        {isSleeping ? (
+          <div className="pet-display__bed">
+            <span className="pet-display__bed-emoji">{"\uD83D\uDECC"}</span>
+            <span className="pet-display__zzz">{"\uD83D\uDCA4"}</span>
+          </div>
+        ) : (
+          STAGE_ART[pet.stage]
+        )}
+      </div>
       <p className="pet-display__stage">
         Stage: <strong>{pet.stage}</strong> &middot; XP: {pet.xp}
       </p>

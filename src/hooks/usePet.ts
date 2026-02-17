@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import type { Pet, PetAction } from "@/types";
 import { applyAction, decayStats } from "@/utils/petEngine";
 import { savePet, loadPet } from "@/utils/storage";
@@ -42,9 +42,27 @@ export function usePet() {
     setPet(createDefaultPet(name));
   }, []);
 
-  const performAction = useCallback((action: PetAction) => {
-    setPet((prev) => (prev ? applyAction(prev, action) : prev));
+  const [isSleeping, setIsSleeping] = useState(false);
+  const sleepTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (sleepTimerRef.current) clearTimeout(sleepTimerRef.current);
+    };
   }, []);
 
-  return { pet, hatchPet, performAction };
+  const performAction = useCallback((action: PetAction) => {
+    setPet((prev) => (prev ? applyAction(prev, action) : prev));
+
+    if (action === "sleep") {
+      if (sleepTimerRef.current) clearTimeout(sleepTimerRef.current);
+      setIsSleeping(true);
+      sleepTimerRef.current = setTimeout(() => {
+        setIsSleeping(false);
+        sleepTimerRef.current = null;
+      }, 3000);
+    }
+  }, []);
+
+  return { pet, hatchPet, performAction, isSleeping };
 }

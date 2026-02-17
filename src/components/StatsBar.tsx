@@ -14,7 +14,7 @@ export function StatsBar({ label, value, color = "#4caf50" }: StatsBarProps) {
           style={{ width: `${value}%`, backgroundColor: color }}
         />
       </div>
-      <span className="stats-bar__value">{value}</span>
+      <span className="stats-bar__value">{Math.round(value)}</span>
     </div>
   );
 }

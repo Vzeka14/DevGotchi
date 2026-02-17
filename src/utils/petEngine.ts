@@ -1,6 +1,6 @@
 import type { Pet, PetAction, PetStats } from "@/types";
 
-const STAT_DECAY_RATE = 2;
+const STAT_DECAY_RATE = 0.5;
 const XP_PER_ACTION = 10;
 const STAGE_THRESHOLDS: Record<number, Pet["stage"]> = {
   0: "egg",
