@@ -18,8 +18,8 @@ app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", time: new Date().toISOString() });
 });
 
-// ── Scheduled scraping: every 3 hours ─────────────────────────────────────────
-cron.schedule("0 */3 * * *", async () => {
+// ── Scheduled scraping: every 12 hours ────────────────────────────────────────
+cron.schedule("0 */12 * * *", async () => {
   console.log("[Cron] Running scheduled scrape...");
   await scrapeAll();
 });

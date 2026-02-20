@@ -61,7 +61,7 @@ export async function getProducts(forceRefresh = false): Promise<{
   lastUpdated: number;
   storesUpdated: StoreId[];
 }> {
-  const MAX_AGE_MS = 3 * 60 * 60 * 1000; // 3 hours
+  const MAX_AGE_MS = 12 * 60 * 60 * 1000; // 12 hours
 
   const cache = readCache();
   const isStale = !cache || Date.now() - cache.lastUpdated > MAX_AGE_MS;

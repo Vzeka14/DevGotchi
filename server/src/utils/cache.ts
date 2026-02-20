@@ -34,7 +34,7 @@ export function writeCache(data: CacheData): void {
   fs.writeFileSync(CACHE_FILE, JSON.stringify(data, null, 2), "utf-8");
 }
 
-export function isCacheStale(maxAgeMs = 3 * 60 * 60 * 1000): boolean {
+export function isCacheStale(maxAgeMs = 12 * 60 * 60 * 1000): boolean {
   const cache = readCache();
   if (!cache) return true;
   return Date.now() - cache.lastUpdated > maxAgeMs;
